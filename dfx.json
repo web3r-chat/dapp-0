@@ -1,0 +1,30 @@
+{
+  "canisters": {
+    "canister_motoko": {
+      "main": "src/backend/motoko/main.mo",
+      "type": "motoko"
+    },
+    "canister_frontend": {
+      "dependencies": ["canister_motoko"],
+      "frontend": {
+        "entrypoint": "src/frontend/src/index.html"
+      },
+      "source": ["src/frontend/assets/favicon", "dist/frontend/"],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": "vessel sources"
+    }
+  },
+  "dfx": "0.10.0",
+  "networks": {
+    "local": {
+      "bind": "127.0.0.1:8000",
+      "type": "ephemeral"
+    }
+  },
+  "version": 1
+}

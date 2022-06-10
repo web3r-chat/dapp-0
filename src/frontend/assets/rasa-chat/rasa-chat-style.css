@@ -1,0 +1,12 @@
+/* Find the class names by inspecting the HTML of the widget in the browser */
+
+/* https://github.com/dracula/dracula-ui/blob/master/src/styles/colors.css */
+:root {
+  --black: hsl(230, 15%, 15%);
+  --blackSecondary: hsl(230, 15%, 30%);
+}
+
+/* Top region */
+.css-ixhvoz {
+  background-color: var(--black);
+}
