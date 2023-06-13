@@ -1,0 +1,42 @@
+type StatusCode = nat16;
+type Result_1 = 
+ variant {
+   err: StatusCode;
+   ok: text;
+ };
+type Result = 
+ variant {
+   err: StatusCode;
+   ok;
+ };
+service : {
+  // --------------------------------------------------------------------------------------------------
+  // Called using dfx during deployment
+  canister_init: () -> ();
+  set_django_principal: (record { "django-principal" : text }) -> (Result);
+  set_action_server_principal: (record { "action-server-principal" : text }) -> (Result);
+  
+  // --------------------------------------------------------------------------------------------------
+  // Called by the django-server as part of login flow
+  session_password_create: () -> (Result_1);
+  session_password_check: (text, text) -> (Result) query;
+  save_django_session_key: (text, text, text) -> (Result);
+  session_password_delete: (text) -> (Result);
+  
+  // --------------------------------------------------------------------------------------------------
+  // Called by the chatbot's action server
+  save_message: (text, text) -> (Result);
+
+  // --------------------------------------------------------------------------------------------------
+  // Called from CandidUI or dfx
+  get_message: (text) -> (opt text) query;
+
+  // --------------------------------------------------------------------------------------------------
+  // Two test functions, not used by chatbot in production
+  greet: (text) -> (text) query;
+  whoami: () -> (text) query;
+
+  // --------------------------------------------------------------------------------------------------
+  // for debug only
+  debug_1: () -> (text, text, text) query;
+}

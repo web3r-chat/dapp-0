@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "canisters": {
+    "canister_cpp": {
+      "type": "custom",
+      "candid": "src/canister_cpp.did",
+      "wasm": "build/canister_cpp.wasm",
+      "build": "icpp build-wasm --to-compile all"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  }
+}

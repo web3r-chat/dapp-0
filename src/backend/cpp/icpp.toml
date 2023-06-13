@@ -1,0 +1,29 @@
+[build-wasm]
+canister          = "canister_cpp"
+did_path          = "src/canister_cpp.did"
+cpp_paths         = [
+                        "src/canister_main.cpp",
+                        "src/password_generator.cpp",
+                        "src/auth.cpp",
+                        "src/http.cpp",
+                    ]
+cpp_header_paths  = [
+                        "src/canister_main.h",
+                        "src/password_generator.h",
+                        "src/auth.h",
+                        "src/http.h",
+                        "src/result.h",
+                    ]
+cpp_compile_flags = []
+cpp_link_flags    = []
+c_paths           = []
+c_header_paths    = []
+c_compile_flags   = []
+[build-native]
+cpp_paths         = ["native/main.cpp"]
+cpp_header_paths  = ["native/main.h"]
+cpp_compile_flags = []
+cpp_link_flags    = []
+c_paths           = []
+c_header_paths    = []
+c_compile_flags   = []
